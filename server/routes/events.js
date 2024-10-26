@@ -23,16 +23,19 @@ db.connect((err) => {
 router.post('/submit-event', (req, res) => {
     const { eventName, location, personName, startDate, endDate, dateSlider, relatedEvents } = req.body;
 
+    // Basic validation
     if (!eventName || !location) {
         return res.status(400).json({ error: "Event name and location are required." });
     }
 
+    // Prepare SQL query for inserting data
     const query = `
         INSERT INTO events (event_name, location, person_name, start_date, end_date, date_slider, related_events)
         VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
     const values = [eventName, location, personName, startDate, endDate, dateSlider, relatedEvents];
 
+    // Execute the query
     db.query(query, values, (err, result) => {
         if (err) {
             console.error("Error inserting data:", err);
@@ -56,38 +59,6 @@ router.get('/:eventId', (req, res) => {
             return res.status(404).json({ error: "Event not found." });
         }
         res.status(200).json(results[0]);
-    });
-});
-
-// Route to retrieve events based on search criteria
-router.get('/events', (req, res) => {
-    const { startDate, endDate, personName } = req.query;
-    let query = "SELECT * FROM events WHERE 1=1"; // Base query with a true condition
-    const values = [];
-
-    // Add date range criteria if provided
-    if (startDate) {
-        query += " AND start_date >= ?";
-        values.push(startDate);
-    }
-    if (endDate) {
-        query += " AND end_date <= ?";
-        values.push(endDate);
-    }
-
-    // Add person name criteria if provided
-    if (personName) {
-        query += " AND person_name LIKE ?";
-        values.push(`%${personName}%`);
-    }
-
-    // Execute the query
-    db.query(query, values, (err, results) => {
-        if (err) {
-            console.error("Error retrieving events:", err);
-            return res.status(500).json({ error: "Failed to retrieve events." });
-        }
-        res.status(200).json(results);
     });
 });
 

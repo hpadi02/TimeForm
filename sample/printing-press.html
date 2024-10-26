@@ -5,67 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invention of the Printing Press</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 800px;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.4rem;
-            margin-bottom: 15px;
-        }
-
-        .image-container img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .info {
-            font-size: 1rem;
-            margin-top: 10px;
-            color: #666;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #0071e3;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: #005bb5;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f9; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { max-width: 800px; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); text-align: center; }
+        .image-container img { width: 100%; max-width: 600px; height: auto; border-radius: 8px; }
+        gmp-map { width: 100%; height: 400px; margin-top: 20px; border-radius: 8px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 10px 20px; color: #fff; background-color: #0071e3; border: none; border-radius: 5px; text-decoration: none; cursor: pointer; transition: background-color 0.3s; }
+        .back-button:hover { background-color: #005bb5; }
     </style>
 </head>
 <body>
@@ -74,15 +19,23 @@
         <div class="image-container">
             <img src="https://cdn.britannica.com/89/171689-138-FCD8F373/history-printing-press-work-discussion-Johannes-Gutenberg.jpg?w=800&h=450&c=crop" alt="Printing Press">
         </div>
-        <p>The printing press, invented by Johannes Gutenberg around 1440, revolutionized the way information was disseminated. It enabled the mass production of books and made written works more accessible to the public, paving the way for the spread of knowledge and the Renaissance.</p>
-        
+        <p>The printing press, invented by Johannes Gutenberg around 1440, revolutionized the way information was disseminated, enabling the mass production of books.</p>
         <div class="info">
             <strong>Location:</strong> Mainz, Germany <br>
             <strong>Date:</strong> 1440 <br>
             <strong>Inventor:</strong> Johannes Gutenberg
         </div>
-        
+
+        <h2>Current View of Mainz</h2>
+        <!-- Google Maps Web Component -->
+        <gmp-map center="49.9929,8.2473" zoom="12">
+            <gmp-advanced-marker position="49.9929,8.2473" title="Mainz, Germany"></gmp-advanced-marker>
+        </gmp-map>
+
         <a href="/" class="back-button">Go Back to Form</a>
     </div>
+
+    <!-- Google Maps Web Components API with async loading -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhYzhWZ5szt_TqydIz-JsxtK9xBBni2Yw&callback=console.debug&libraries=maps,marker&v=beta"></script>
 </body>
 </html>

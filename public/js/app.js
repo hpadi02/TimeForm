@@ -41,7 +41,8 @@ form.addEventListener("submit", async (event) => {
         if (response.ok) {
             const result = await response.json();
             const eventId = result.eventId;
-            window.location.href = `/display.html?eventId=${eventId}`; // Redirect to display page with eventId
+            // Redirect with eventId and location
+            window.location.href = `/display.html?eventId=${eventId}&location=${encodeURIComponent(formData.location)}`;
         } else {
             alert("Failed to submit event. Please try again.");
         }
