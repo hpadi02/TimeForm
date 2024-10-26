@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historical Events Form</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <!-- Main Form Container -->
     <div class="container">
@@ -24,7 +26,7 @@
             <!-- Date Range Fields -->
             <label for="start-date">Start Date:</label>
             <input type="date" id="start-date" name="start-date">
-            
+
             <label for="end-date">End Date:</label>
             <input type="date" id="end-date" name="end-date">
 
@@ -73,19 +75,35 @@
         </div>
     </section>
 
+    <!-- Animation Overlay -->
+    <div id="animation-overlay" class="overlay">
+        <img src="/Users/andrewgonzalez/Documents/GitHub/hack-to-the-future/Images/Delorean2.png" alt="Delorean" class="delorean">
+        <div class="fire-trail"></div>
+    </div>
     <!-- JavaScript for Form Submission and Slider -->
     <script>
         document.getElementById("historical-event-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const eventName = document.getElementById("event-name").value;
-            const location = document.getElementById("location").value;
-            const personName = document.getElementById("person-name").value;
-            const startDate = document.getElementById("start-date").value;
-            const endDate = document.getElementById("end-date").value;
-            const relatedEvents = document.getElementById("related-events").value;
+    event.preventDefault();
 
-            window.location.href = `display.html?eventName=${encodeURIComponent(eventName)}&location=${encodeURIComponent(location)}&personName=${encodeURIComponent(personName)}&startDate=${startDate}&endDate=${endDate}&relatedEvents=${encodeURIComponent(relatedEvents)}`;
-        });
+    // Show the animation overlay
+    const overlay = document.getElementById("animation-overlay");
+    overlay.style.display = "flex";
+
+    // Trigger redirection after the animation completes (3s delay to match animation duration)
+    setTimeout(() => {
+        const eventName = document.getElementById("event-name").value;
+        const location = document.getElementById("location").value;
+        const personName = document.getElementById("person-name").value;
+        const startDate = document.getElementById("start-date").value;
+        const endDate = document.getElementById("end-date").value;
+        const relatedEvents = document.getElementById("related-events").value;
+
+        // Redirect with form data as query parameters
+        window.location.href = `display.html?eventName=${encodeURIComponent(eventName)}&location=${encodeURIComponent(location)}&personName=${encodeURIComponent(personName)}&startDate=${startDate}&endDate=${endDate}&relatedEvents=${encodeURIComponent(relatedEvents)}`;
+    }, 3000); // Matches animation duration
+});
+
+
 
         // Update slider display
         const slider = document.getElementById("date-slider");
@@ -95,4 +113,5 @@
         });
     </script>
 </body>
+
 </html>

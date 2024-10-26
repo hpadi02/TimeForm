@@ -1,25 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fall of the Berlin Wall</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f9; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .container { max-width: 800px; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); text-align: center; }
-        .image-container img { width: 100%; max-width: 600px; height: auto; border-radius: 8px; }
-        gmp-map { width: 100%; height: 400px; margin-top: 20px; border-radius: 8px; }
-        .back-button { display: inline-block; margin-top: 20px; padding: 10px 20px; color: #fff; background-color: #0071e3; border: none; border-radius: 5px; text-decoration: none; cursor: pointer; transition: background-color 0.3s; }
-        .back-button:hover { background-color: #005bb5; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        gmp-map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #0071e3;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #005bb5;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Fall of the Berlin Wall</h1>
         <div class="image-container">
-            <img src="https://images.squarespace-cdn.com/content/v1/5f564621abe403086f2c96c1/1667859966184-M23C6ETWZ67Q92JL5OD9/141104-berlin-wall-neely-cover.jpg" alt="Berlin Wall">
+            <img src="https://images.squarespace-cdn.com/content/v1/5f564621abe403086f2c96c1/1667859966184-M23C6ETWZ67Q92JL5OD9/141104-berlin-wall-neely-cover.jpg"
+                alt="Berlin Wall">
         </div>
-        <p>The Berlin Wall, a symbol of Cold War division, fell on November 9, 1989, paving the way for German reunification. Thousands of East and West Berliners gathered to celebrate.</p>
+        <p>The Berlin Wall, a symbol of Cold War division, fell on November 9, 1989, paving the way for German
+            reunification. Thousands of East and West Berliners gathered to celebrate.</p>
         <div class="info">
             <strong>Location:</strong> Berlin, Germany <br>
             <strong>Date:</strong> November 9, 1989 <br>
@@ -36,6 +85,8 @@
     </div>
 
     <!-- Google Maps Web Components API with async loading -->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhYzhWZ5szt_TqydIz-JsxtK9xBBni2Yw&callback=console.debug&libraries=maps,marker&v=beta"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhYzhWZ5szt_TqydIz-JsxtK9xBBni2Yw&callback=console.debug&libraries=maps,marker&v=beta"></script>
 </body>
+
 </html>
