@@ -4,24 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f9; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { max-width: 800px; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); text-align: center; }
+        #map { width: 100%; height: 400px; margin-top: 20px; border-radius: 8px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 10px 20px; color: #fff; background-color: #0071e3; border: none; border-radius: 5px; text-decoration: none; cursor: pointer; transition: background-color 0.3s; }
+        .back-button:hover { background-color: #005bb5; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Historical Event Details</h1>
-        <div id="event-details">
-            <!-- Event data will be inserted here dynamically -->
-        </div>
+        <h1 id="event-name"></h1>
+        <p><strong>Location:</strong> <span id="location"></span></p>
+        <p><strong>Person:</strong> <span id="person-name"></span></p>
+        <p><strong>Date Range:</strong> <span id="start-date"></span> - <span id="end-date"></span></p>
+        <p><strong>Related Events:</strong> <span id="related-events"></span></p>
 
-        <!-- Google Earth View -->
         <h2>Current View of Location</h2>
-        <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+        <!-- Google Maps Web Component -->
+        <gmp-map id="map"></gmp-map>
 
-        <button onclick="window.location.href='/'" style="margin-top: 20px; padding: 10px 20px;">Add Another Event</button>
+        <a href="/" class="back-button">Go Back to Form</a>
     </div>
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8T77hpCYtpE7h10Jl7sMtOIxdr3Oh_qA"></script>
-    <script src="js/display.js"></script>
+    <!-- Google Maps Web Components API with async loading -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhYzhWZ5szt_TqydIz-JsxtK9xBBni2Yw&callback=console.debug&libraries=maps,marker&v=beta"></script>
+    <script>
+        // Parse URL parameters to get form data
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventName = urlParams.get("eventName");
+        const location = urlParams.get("location");
+        const personName = urlParams.get("personName");
+        const startDate = urlParams.get("startDate");
+        const endDate = urlParams.get("endDate");
+        const relatedEvents = urlParams.get("relatedEvents");
+
+        // Display form data
+        document.getElementById("event-name").textContent = eventName;
+        document.getElementById("location").textContent = location;
+        document.getElementById("person-name").textContent = personName;
+        document.getElementById("start-date").textContent = startDate;
+        document.getElementById("end-date").textContent = endDate;
+        document.getElementById("related-events").textContent = relatedEvents;
+
+        // Initialize the map for the submitted location
+        function initMap() {
+            const geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ address: location }, (results, status) => {
+                if (status === "OK" && results[0]) {
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 12,
+                        center: results[0].geometry.location,
+                    });
+                    new google.maps.marker.AdvancedMarkerElement({
+                        position: results[0].geometry.location,
+                        map,
+                        title: location,
+                    });
+                } else {
+                    console.error("Geocode was not successful: " + status);
+                }
+            });
+        }
+
+        // Load map on window load
+        window.onload = initMap;
+    </script>
 </body>
 </html>
