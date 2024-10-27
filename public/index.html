@@ -8,32 +8,39 @@
 </head>
 <body>
     <!-- Main Form Container -->
-<div class="container">
-    <h1>Enter Historical Event Details</h1>
-    <form id="historical-event-form">
-        <label for="event-name">Event Name:</label>
-        <input type="text" id="event-name" name="event-name" required>
+    <div class="container">
+        <h1>Enter Historical Event Details</h1>
+        <form id="historical-event-form">
+            <!-- Input fields -->
+            <label for="event-name">Event Name:</label>
+            <input type="text" id="event-name" name="event-name" required>
 
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" required>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
 
-        <label for="person-name">Historical Person:</label>
-        <input type="text" id="person-name" name="person-name">
+            <label for="person-name">Historical Person:</label>
+            <input type="text" id="person-name" name="person-name">
 
-        <label for="start-date">Start Date:</label>
-        <input type="date" id="start-date" name="start-date">
+            <!-- Date Range Fields -->
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date">
 
-        <label for="end-date">End Date:</label>
-        <input type="date" id="end-date" name="end-date">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date">
 
-        <label for="date-slider">Approximate Year:</label>
-        <input type="range" id="date-slider" name="date-slider" min="1500" max="2023" value="2000" step="1">
-        <span id="slider-value">2000</span>
+            <!-- Date Slider for Approximate Date -->
+            <label for="date-slider">Approximate Year:</label>
+            <input type="range" id="date-slider" name="date-slider" min="1500" max="2023" value="2000" step="1">
+            <span id="slider-value">2000</span>
 
-        <button type="submit">Submit</button>
-    </form>
-</div>
+            <!-- Related Events -->
+            <label for="related-events">Other Related Events:</label>
+            <textarea id="related-events" name="related-events" rows="3"></textarea>
 
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <!-- Contact Section -->
     <section class="contact-section">
