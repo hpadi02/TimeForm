@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Main Form Container -->
+   <!-- Main Form Container -->
 <div class="container">
     <h1>Enter Historical Event Details</h1>
     <form id="historical-event-form">
@@ -30,10 +30,15 @@
         <input type="range" id="date-slider" name="date-slider" min="1500" max="2023" value="2000" step="1">
         <span id="slider-value">2000</span>
 
+        <!-- Related Events Field (Added to avoid the error) -->
+        <label for="related-events">Related Events:</label>
+        <textarea id="related-events" name="related-events" rows="3"></textarea>
+
         <button type="submit">Submit</button>
     </form>
 </div>
 
+<!-- Contact Section and Animation Overlay unchanged -->
 
     <!-- Contact Section -->
     <section class="contact-section">
@@ -64,7 +69,7 @@
 
     <!-- Animation Overlay -->
     <div id="animation-overlay" class="overlay">
-        <img src="Images/Delorean2.png" alt="Delorean" class="delorean">
+        <img src="/Users/andrewgonzalez/Documents/GitHub/hack-to-the-future/Images/Delorean2.png" alt="Delorean" class="delorean">
         <div class="fire-trail"></div>
     </div>
     

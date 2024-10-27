@@ -20,7 +20,9 @@ form.addEventListener("submit", async (event) => {
         startDate: document.getElementById("start-date").value,
         endDate: document.getElementById("end-date").value,
         dateSlider: slider.value,
-        relatedEvents: document.getElementById("related-events").value.trim(),
+        relatedEvents: document.getElementById("related-events") 
+                        ? document.getElementById("related-events").value.trim() 
+                        : "", // Use empty string if not found
     };
 
     // Validate date range
