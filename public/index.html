@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historical Events Form</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
     <!-- Main Form Container -->
     <div class="container">
@@ -48,25 +46,21 @@
     <section class="contact-section">
         <h2>Meet the Team</h2>
         <div class="card-container">
-            <!-- Team Member Card 1 -->
             <div class="card">
                 <h3>Liliana Martinez</h3>
                 <p>Role: Project Manager / Developer</p>
                 <p>Email: lilianafinona3@gmail.com</p>
             </div>
-            <!-- Team Member Card 2 -->
             <div class="card">
                 <h3>Andrew Gonzalez</h3>
                 <p>Role: Developer</p>
                 <p>Email: gonzalezandrew528@gmail.com</p>
             </div>
-            <!-- Team Member Card 3 -->
             <div class="card">
                 <h3>Hugo Padilla</h3>
                 <p>Role: Designer</p>
                 <p>Email: hugop4420@gmail.com</p>
             </div>
-            <!-- Team Member Card 4 -->
             <div class="card">
                 <h3>Eric Gerner</h3>
                 <p>Role: Developer</p>
@@ -77,41 +71,11 @@
 
     <!-- Animation Overlay -->
     <div id="animation-overlay" class="overlay">
-        <img src="/Users/andrewgonzalez/Documents/GitHub/hack-to-the-future/Images/Delorean2.png" alt="Delorean" class="delorean">
+        <img src="Images/Delorean2.png" alt="Delorean" class="delorean">
         <div class="fire-trail"></div>
     </div>
+    
     <!-- JavaScript for Form Submission and Slider -->
-    <script>
-        document.getElementById("historical-event-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    // Show the animation overlay
-    const overlay = document.getElementById("animation-overlay");
-    overlay.style.display = "flex";
-
-    // Trigger redirection after the animation completes (3s delay to match animation duration)
-    setTimeout(() => {
-        const eventName = document.getElementById("event-name").value;
-        const location = document.getElementById("location").value;
-        const personName = document.getElementById("person-name").value;
-        const startDate = document.getElementById("start-date").value;
-        const endDate = document.getElementById("end-date").value;
-        const relatedEvents = document.getElementById("related-events").value;
-
-        // Redirect with form data as query parameters
-        window.location.href = `display.html?eventName=${encodeURIComponent(eventName)}&location=${encodeURIComponent(location)}&personName=${encodeURIComponent(personName)}&startDate=${startDate}&endDate=${endDate}&relatedEvents=${encodeURIComponent(relatedEvents)}`;
-    }, 3000); // Matches animation duration
-});
-
-
-
-        // Update slider display
-        const slider = document.getElementById("date-slider");
-        const sliderValue = document.getElementById("slider-value");
-        slider.addEventListener("input", () => {
-            sliderValue.textContent = slider.value;
-        });
-    </script>
+    <script src="js/app.js"></script>
 </body>
-
 </html>
